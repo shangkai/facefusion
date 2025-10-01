@@ -111,7 +111,6 @@ def extract_frames(target_path : str, temp_video_resolution : Resolution, temp_v
 	extract_frame_total = predict_video_frame_total(target_path, temp_video_fps, trim_frame_start, trim_frame_end)
 	temp_frames_pattern = get_temp_frames_pattern(target_path, '%08d')
 	commands = ffmpeg_builder.chain(
-		ffmpeg_builder.set_hardware_accelerator('cuda'),
 		ffmpeg_builder.set_input(target_path),
 		ffmpeg_builder.set_media_resolution(pack_resolution(temp_video_resolution)),
 		ffmpeg_builder.set_frame_quality(0),
